@@ -27,7 +27,7 @@ class HomeScreen extends StatelessWidget {
       body: Obx(() {
         final role = authController.userRole.value;
         if (role == 'instructor') {
-          return InstructorHome();
+          return InstructorHomeScreen();
         } else if (role == 'student') {
           return StudentHome();
         } else {
