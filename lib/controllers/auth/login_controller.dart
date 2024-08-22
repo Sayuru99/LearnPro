@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:learnpro/controllers/auth_controller.dart';
+import 'package:learnpro/controllers/auth/auth_controller.dart';
 import 'package:learnpro/screens/home.dart';
 import 'package:learnpro/screens/utils/api_endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';

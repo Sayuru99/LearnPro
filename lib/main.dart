@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learnpro/controllers/auth_controller.dart';
+import 'package:learnpro/controllers/auth/auth_controller.dart';
+import 'package:learnpro/controllers/course/course_controller.dart';
 import 'package:learnpro/screens/auth/auth_screen.dart';
 import 'package:get/get.dart';
 import 'package:learnpro/screens/home.dart';
@@ -15,6 +16,7 @@ void main() async {
   // ("AuthController" not found. You need to call "Get.put(AuthController())" or "Get.lazyPut(()=>AuthController())")
 
   Get.put(AuthController());
+  Get.put(CourseController());
 }
 
 class MyApp extends StatelessWidget {

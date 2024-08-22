@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/login_controller.dart';
+import 'package:learnpro/controllers/auth/login_controller.dart';
 import 'package:learnpro/screens/auth/widgets/input_fields.dart';
 import 'package:learnpro/screens/auth/widgets/submit_button.dart';
 

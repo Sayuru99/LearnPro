@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/auth_controller.dart';
+import 'package:learnpro/controllers/auth/auth_controller.dart';
 import 'package:learnpro/screens/instructor/home.dart';
 import 'package:learnpro/screens/students/home.dart';
 import 'package:learnpro/screens/auth/auth_screen.dart';
