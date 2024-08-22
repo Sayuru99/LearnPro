@@ -12,7 +12,7 @@ class RegistrationController extends GetxController {
   TextEditingController passwordController = TextEditingController();
 
   final RxBool passwordStrong = false.obs;
-
+//backend doenst have a password validation
   void validatePass(String password) {
     final bool hasUpperCase = password.contains(RegExp(r'[A-Z]'));
     final bool hasLowerCase = password.contains(RegExp(r'[a-z]'));

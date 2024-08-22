@@ -70,8 +70,42 @@ class AuthController extends GetxController {
     }
   }
 
-  Future<bool> _checkInternetConnection() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
-    return connectivityResult != ConnectivityResult.none;
+  Future<void> logout() async {
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      final String? token = prefs.getString('token');
+
+      if (token != null) {
+        var headers = {
+          'Authorization': 'Bearer $token',
+          'content-type': 'application/json'
+        };
+        var url = Uri.parse(
+            ApiEndPoints.baseUrl + ApiEndPoints.authEndPoints.logoutUser);
+
+        http.Response response = await http.post(url, headers: headers);
+
+        if (response.statusCode == 200) {
+          await prefs.clear();
+          userRole.value = '';
+          Get.offAll(() => AuthScreen());
+        } else {
+          throw 'Logout failed';
+        }
+      } else {
+        await prefs.clear();
+        userRole.value = '';
+        Get.offAll(() => AuthScreen());
+      }
+    } catch (e) {
+      print('Logout error: $e');
+      Get.snackbar('Logout Error', e.toString());
+    }
   }
+}
+
+//if htere is no internet we must check user token and role from local storage and show home
+Future<bool> _checkInternetConnection() async {
+  var connectivityResult = await Connectivity().checkConnectivity();
+  return connectivityResult != ConnectivityResult.none;
 }

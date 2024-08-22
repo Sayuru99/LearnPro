@@ -8,4 +8,5 @@ class _AuthEndPoints {
   final String registerUser = '/register';
   final String loginUser = '/login';
   final String authUser = '/user';
+  final String logoutUser = '/logout';
 }

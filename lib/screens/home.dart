@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learnpro/controllers/auth_controller.dart';
+import 'package:learnpro/screens/instructor/home.dart';
+import 'package:learnpro/screens/students/home.dart';
 import 'package:learnpro/screens/auth/auth_screen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -18,36 +19,24 @@ class HomeScreen extends StatelessWidget {
           IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () async {
-              final SharedPreferences prefs =
-                  await SharedPreferences.getInstance();
-              await prefs.clear();
-              final authController = Get.find<AuthController>();
-              authController.userRole.value = '';
-              Get.offAll(() => AuthScreen());
+              await authController.logout();
             },
           ),
         ],
       ),
-      body: Center(
-        child: Obx(() {
-          final role = authController.userRole.value;
-          return role == 'instructor' ? InstructorContent() : StudentContent();
-        }),
-      ),
+      body: Obx(() {
+        final role = authController.userRole.value;
+        if (role == 'instructor') {
+          return InstructorHome();
+        } else if (role == 'student') {
+          return StudentHome();
+        } else {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            Get.offAll(() => AuthScreen());
+          });
+          return const Center(child: CircularProgressIndicator());
+        }
+      }),
     );
-  }
-}
-
-class InstructorContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Text("Welcome, Instructor");
-  }
-}
-
-class StudentContent extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return const Text("Welcome, Student");
   }
 }
