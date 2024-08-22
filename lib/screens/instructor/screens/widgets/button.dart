@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
 
-class SubmitButton extends StatelessWidget {
-  final String label;
+class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
+  final String label;
+  final Color color;
 
-  const SubmitButton({
-    super.key,
-    required this.label,
+  const CustomElevatedButton({
     required this.onPressed,
+    required this.label,
+    this.color = Colors.blue,
   });
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-      ),
+      style: ElevatedButton.styleFrom(backgroundColor: color),
       child: Text(label),
     );
   }

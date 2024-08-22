@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-import 'package:learnpro/controllers/auth/auth_controller.dart';
+import 'package:learnpro/controllers/auth_controller.dart';
 import 'package:learnpro/screens/home.dart';
 import 'package:learnpro/screens/utils/api_endpoints.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,10 +31,12 @@ class LoginController extends GetxController {
         if (json['status'] == 'success') {
           var token = json['token'];
           var role = json['user']['role'];
+          var name = json['user']['name'];
 
           final SharedPreferences prefs = await _prefs;
           await prefs.setString('token', token);
           await prefs.setString('role', role);
+          await prefs.setString('name', name);
           final authController = Get.find<AuthController>();
           authController.userRole.value = role;
 
@@ -48,7 +50,7 @@ class LoginController extends GetxController {
         throw jsonDecode(response.body)["message"] ?? "Unknown Error";
       }
     } catch (e) {
-      print(e);
+      // print(e);
       Get.back();
       showDialog(
         context: Get.context!,

@@ -41,7 +41,7 @@ class AuthController extends GetxController {
 
       return response.statusCode == 200;
     } catch (e) {
-      // print('Token validation error: $e');
+      // print('Token validation er $e');
       return false;
     }
   }
@@ -97,7 +97,7 @@ class AuthController extends GetxController {
         Get.offAll(() => AuthScreen());
       }
     } catch (e) {
-      // print('$e');
+      // print(e);
       Get.snackbar('Logout Error', e.toString());
     }
   }

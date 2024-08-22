@@ -64,7 +64,7 @@ class RegistrationController extends GetxController {
         throw jsonDecode(response.body)["message"] ?? "Unknown Error";
       }
     } catch (e) {
-      print(e);
+      // print(e);
       Get.back();
       showDialog(
         context: Get.context!,

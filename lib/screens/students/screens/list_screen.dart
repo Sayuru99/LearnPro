@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/course/course_controller.dart';
-import 'package:learnpro/screens/students/screens/course_details.dart';
+import 'package:learnpro/controllers/course_controller.dart';
+import 'package:learnpro/screens/students/screens/widgets/course_list.dart';
 
 class CourseListScreen extends StatelessWidget {
   final String category;
@@ -31,13 +31,7 @@ class CourseListScreen extends StatelessWidget {
           itemCount: courses.length,
           itemBuilder: (context, index) {
             final course = courses[index];
-            return ListTile(
-              title: Text(course.title),
-              subtitle: Text(course.description),
-              onTap: () {
-                Get.to(() => CourseDetailScreen(courseId: course.id));
-              },
-            );
+            return CourseListTile(course: course);
           },
         );
       }),

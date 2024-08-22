@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/instructor/instructor_controller.dart';
+import 'package:learnpro/controllers/instructor_controller.dart';
 import 'package:learnpro/models/course.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/button.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/inout_fields.dart';
 
-class CourseDetailsScreen extends StatelessWidget {
+class CourseDetails extends StatelessWidget {
   final Course course;
   final InstructorController instructorController =
       Get.find<InstructorController>();
@@ -12,7 +14,7 @@ class CourseDetailsScreen extends StatelessWidget {
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
 
-  CourseDetailsScreen({required this.course}) {
+  CourseDetails({required this.course}) {
     titleController.text = course.title;
     categoryController.text = course.category;
     descriptionController.text = course.description;
@@ -29,25 +31,24 @@ class CourseDetailsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
+            CustomTextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Course Title'),
+              label: 'Course Title',
             ),
             const SizedBox(height: 8),
-            TextField(
+            CustomTextField(
               controller: categoryController,
-              decoration: const InputDecoration(labelText: 'Course Category'),
+              label: 'Course Category',
             ),
             const SizedBox(height: 8),
-            TextField(
+            CustomTextField(
               controller: descriptionController,
-              decoration:
-                  const InputDecoration(labelText: 'Course Description'),
+              label: 'Course Description',
             ),
             const SizedBox(height: 16),
             Row(
               children: [
-                ElevatedButton(
+                CustomElevatedButton(
                   onPressed: () {
                     instructorController.updateCourse(
                       course.id,
@@ -57,18 +58,16 @@ class CourseDetailsScreen extends StatelessWidget {
                     );
                     Get.back();
                   },
-                  child: const Text('Update Course'),
+                  label: 'Update Course',
                 ),
                 const SizedBox(width: 16),
-                ElevatedButton(
+                CustomElevatedButton(
                   onPressed: () {
                     instructorController.deleteCourse(course.id);
                     Get.back();
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.red,
-                  ),
-                  child: const Text('Delete Course'),
+                  label: 'Delete Course',
+                  color: Colors.red,
                 ),
               ],
             ),

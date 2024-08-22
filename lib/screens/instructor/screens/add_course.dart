@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/instructor/instructor_controller.dart';
+import 'package:learnpro/controllers/instructor_controller.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/inout_fields.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/button.dart';
 
-class AddCourseScreen extends StatelessWidget {
+class AddCourse extends StatelessWidget {
   final TextEditingController titleController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
@@ -20,21 +22,22 @@ class AddCourseScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
+            CustomTextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Course Title'),
+              label: 'Course Title',
             ),
-            TextField(
+            const SizedBox(height: 8),
+            CustomTextField(
               controller: categoryController,
-              decoration: const InputDecoration(labelText: 'Course Category'),
+              label: 'Course Category',
             ),
-            TextField(
+            const SizedBox(height: 8),
+            CustomTextField(
               controller: descriptionController,
-              decoration:
-                  const InputDecoration(labelText: 'Course Description'),
+              label: 'Course Description',
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
+            CustomElevatedButton(
               onPressed: () async {
                 await instructorController.addCourse(
                   titleController.text,
@@ -43,7 +46,7 @@ class AddCourseScreen extends StatelessWidget {
                 );
                 Get.back();
               },
-              child: const Text('Add Course'),
+              label: 'Add Course',
             ),
           ],
         ),

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/auth/auth_controller.dart';
+import 'package:learnpro/controllers/auth_controller.dart';
 import 'package:learnpro/screens/auth/widgets/login_form.dart';
 import 'package:learnpro/screens/auth/widgets/reg_form.dart';
 
 class AuthScreen extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
+
+  AuthScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

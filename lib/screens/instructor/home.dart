@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/course/course_controller.dart';
-import 'package:learnpro/controllers/instructor/instructor_controller.dart';
+import 'package:learnpro/controllers/course_controller.dart';
+import 'package:learnpro/controllers/instructor_controller.dart';
 import 'package:learnpro/models/course.dart';
 import 'package:learnpro/screens/instructor/screens/add_course.dart';
 import 'package:learnpro/screens/instructor/screens/add_lessons.dart';
@@ -49,14 +49,14 @@ class InstructorHomeScreen extends StatelessWidget {
                 title: const Text('Add New Course'),
                 leading: const Icon(Icons.add),
                 onTap: () {
-                  Get.to(() => AddCourseScreen())?.then((_) => _refreshData());
+                  Get.to(() => AddCourse())?.then((_) => _refreshData());
                 },
               ),
               ListTile(
                 title: const Text('Add New Lesson'),
                 leading: const Icon(Icons.add),
                 onTap: () {
-                  Get.to(() => AddLessonScreen())?.then((_) => _refreshData());
+                  Get.to(() => AddLesson())?.then((_) => _refreshData());
                 },
               ),
               ...instructorCourses.map((course) {
@@ -64,7 +64,7 @@ class InstructorHomeScreen extends StatelessWidget {
                   title: Text(course.title),
                   subtitle: Text(course.description),
                   onTap: () {
-                    Get.to(() => CourseDetailsScreen(course: course));
+                    Get.to(() => CourseDetails(course: course));
                   },
                 );
               }),

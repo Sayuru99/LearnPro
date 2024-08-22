@@ -38,10 +38,10 @@ class InstructorController extends GetxController {
       if (response.statusCode == 201) {
         await fetchCourses();
       } else {
-        throw 'Failed to add course';
+        throw 'Failed to create a course';
       }
     } catch (e) {
-      print('Error adding course: $e');
+      // print('Error creating courses $e');
     } finally {
       isLoading.value = false;
     }
@@ -66,10 +66,10 @@ class InstructorController extends GetxController {
         final data = jsonDecode(response.body);
         instructorId.value = data['id'];
       } else {
-        throw 'Failed to fetch user details';
+        throw 'Failed to get user details';
       }
     } catch (e) {
-      print('Error fetching user details: $e');
+      // print('Error getting user details $e');
     } finally {
       isLoading.value = false;
     }
@@ -98,7 +98,7 @@ class InstructorController extends GetxController {
         throw 'Failed to load courses';
       }
     } catch (e) {
-      print('Error fetching courses: $e');
+      // print('Error getting courses $e');
     } finally {
       isLoading.value = false;
     }
@@ -128,7 +128,7 @@ class InstructorController extends GetxController {
         throw 'Failed to update course';
       }
     } catch (e) {
-      print('Error updating course: $e');
+      // print('Error updating course $e');
     } finally {
       isLoading.value = false;
     }
@@ -151,7 +151,7 @@ class InstructorController extends GetxController {
         throw 'Failed to delete course';
       }
     } catch (e) {
-      print('Error deleting course: $e');
+      // print('Error deleting course $e');
     } finally {
       isLoading.value = false;
     }
@@ -179,10 +179,10 @@ class InstructorController extends GetxController {
       if (response.statusCode == 201) {
         await fetchCourses();
       } else {
-        throw 'Failed to add lesson';
+        throw 'Failed to create lesson';
       }
     } catch (e) {
-      print('Error adding lesson: $e');
+      // print('Error createing lesson$e');/
     } finally {
       isLoading.value = false;
     }

@@ -5,7 +5,8 @@ class InputField extends StatefulWidget {
   final String label;
   final bool obscureText;
 
-  InputField({
+  const InputField({
+    super.key,
     required this.controller,
     required this.label,
     this.obscureText = false,

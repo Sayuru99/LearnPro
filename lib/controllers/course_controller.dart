@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 import 'package:learnpro/screens/utils/api_endpoints.dart';
@@ -55,7 +54,7 @@ class CourseController extends GetxController {
         throw 'Failed to load courses';
       }
     } catch (e) {
-      print('Error fetching courses: $e');
+      // print('Error fetching course $e');
     } finally {
       isLoading.value = false;
     }
@@ -81,7 +80,7 @@ class CourseController extends GetxController {
         throw 'Failed to load course details';
       }
     } catch (e) {
-      print('Error fetching course details: $e');
+      // print('Error geting course detail $e');
     }
   }
 }

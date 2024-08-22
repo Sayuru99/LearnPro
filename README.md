@@ -1,16 +1,53 @@
-# learnpro
+# LearnPro: A Simple Learning Management System
 
-A new Flutter project.
+## Project Description
 
-## Getting Started
+LearnPro is a basic Learning Management System (LMS) designed to facilitate the creation and management of courses by instructors, and enrollment and progress tracking by students. The platform includes:
 
-This project is a starting point for a Flutter application.
+### Instructor Features:
 
-A few resources to get you started if this is your first Flutter project:
+- Create and manage courses.
+- Add lessons to courses.
+- Update and delete courses.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Student Features:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Browse courses categorized by topics.
+- View course details including lessons and instructor information.
+- Enroll in and track progress of courses.
+
+## Authentication Details
+
+### Instructor Login:
+
+- **Email:** `sayurudealwis99@gmail.com`
+- **Password:** `sayuru99x`
+
+### Student Login:
+
+- **Email:** `sayurustd@gmail.com`
+- **Password:** `sayuru99x`
+
+## Technologies and Packages Used
+
+- **Flutter** for building the UI.
+- **GetX** for state management and dependency injection.
+- **SharedPreferences** for local storage.
+- **http** package for API requests.
+
+## Development Notes
+
+- **Reactive State Management:** Encountered challenges with reactive state management and used `GetBuilder` for registration state handling.
+- **UI:** The UI is not fully completed at this stage. I plan to create another branch in GitHub to update and enhance the UI after the assignment submission. I kindly request the examiner to review both the main branch and the updated branch to see the latest improvements.
+
+## Issues and Solutions
+
+- **Reactive and Simple State Issues:** Initially faced challenges with reactive and simple state management. Resolved by using GetBuilder for handling registration states.
+
+## Future Improvements
+
+Complete the UI design and functionality enhancements.
+
+# References
+
+[refered.md](refered.md)

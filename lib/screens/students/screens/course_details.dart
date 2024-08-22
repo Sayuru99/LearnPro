@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/course/course_controller.dart';
-import 'package:learnpro/models/lesson.dart';
+import 'package:learnpro/controllers/course_controller.dart';
 
-class CourseDetailScreen extends StatelessWidget {
+class CourseDetail extends StatelessWidget {
   final int courseId;
 
-  CourseDetailScreen({required this.courseId});
+  CourseDetail({required this.courseId});
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +58,7 @@ class CourseDetailScreen extends StatelessWidget {
                     return ListTile(
                       title: Text(lesson.title),
                       subtitle: Text(lesson.content),
-                      onTap: () {
-                        // Handle lesson tap, e.g., navigate to lesson details
-                      },
+                      onTap: () {},
                     );
                   },
                 ),

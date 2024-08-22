@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/course/course_controller.dart';
-import 'package:learnpro/controllers/instructor/instructor_controller.dart';
+import 'package:learnpro/controllers/course_controller.dart';
+import 'package:learnpro/controllers/instructor_controller.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/button.dart';
+import 'package:learnpro/screens/instructor/screens/widgets/inout_fields.dart';
 
-class AddLessonScreen extends StatelessWidget {
+class AddLesson extends StatelessWidget {
   final CourseController courseController = Get.find<CourseController>();
   final InstructorController instructorController =
       Get.find<InstructorController>();
@@ -42,19 +44,21 @@ class AddLessonScreen extends StatelessWidget {
                 },
               );
             }),
-            TextField(
+            const SizedBox(height: 16),
+            CustomTextField(
               controller: titleController,
-              decoration: const InputDecoration(labelText: 'Lesson Title'),
+              label: 'Lesson Title',
             ),
-            TextField(
+            const SizedBox(height: 8),
+            CustomTextField(
               controller: descriptionController,
-              decoration:
-                  const InputDecoration(labelText: 'Lesson Description'),
+              label: 'Lesson Description',
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
+            const SizedBox(height: 20),
+            CustomElevatedButton(
               onPressed: () {},
-              child: const Text('Add Lesson'),
+              label: 'Add Lesson',
+              color: Colors.green,
             ),
           ],
         ),

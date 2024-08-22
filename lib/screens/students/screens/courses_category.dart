@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:learnpro/controllers/course/course_controller.dart';
-import 'package:learnpro/screens/students/screens/course_details.dart';
+import 'package:learnpro/controllers/course_controller.dart';
+import 'package:learnpro/screens/students/screens/widgets/course_card.dart';
 
-class CoursesByCategoryScreen extends StatelessWidget {
+class CoursesByCategory extends StatelessWidget {
   final String category;
 
-  CoursesByCategoryScreen({required this.category});
+  const CoursesByCategory({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +21,7 @@ class CoursesByCategoryScreen extends StatelessWidget {
         itemCount: courses.length,
         itemBuilder: (context, index) {
           final course = courses[index];
-          return Card(
-            margin: EdgeInsets.all(8.0),
-            child: ListTile(
-              title: Text(course.title),
-              subtitle: Text(
-                  'Instructor: ${course.instructor.name}\n${course.description}'),
-              onTap: () {
-                Get.to(() => CourseDetailScreen(courseId: course.id));
-              },
-            ),
-          );
+          return CourseCard(course: course); // Use custom course card widget
         },
       ),
     );
