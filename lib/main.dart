@@ -1,21 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:learnpro/controllers/auth_controller.dart';
+import 'package:learnpro/screens/auth/auth_screen.dart';
+import 'package:get/get.dart';
+import 'package:learnpro/screens/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  final token = prefs.getString('token');
+  runApp(MyApp(token: token));
+
+  //register auth controller othervise app shows an error aith controllr not found
+  // ("AuthController" not found. You need to call "Get.put(AuthController())" or "Get.lazyPut(()=>AuthController())")
+
+  Get.put(AuthController());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final String? token;
+  const MyApp({super.key, this.token});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(),
+    return GetMaterialApp(
+      title: 'LearnPro',
+      home: token == null ? AuthScreen() : HomeScreen(),
     );
   }
 }
